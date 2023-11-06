@@ -69,3 +69,41 @@ To use, run:
 ```
 ruby <file_name>.rb
 ```
+
+## 👥 Author <a name="author"></a>
+
+- GitHub: [@Uzair Manzoor](https://github.com/Uzair-Manzoor)
+- Twitter: [@Uzair Manzoor](https://twitter.com/uzair.kiyani5555)
+- LinkedIn: [@Uzair Manzoor](https://linkedin.com/in/uzair-manzoor-b69996115)
+
+## 🔭 Future Features <a name="future-features"></a>
+
+- [ ] **[School Library App]**
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🤝 Contributing <a name="contributing"></a>
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](../../issues/).
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## ⭐️ Show your support <a name="support"></a>
+
+Kindly give this project a star if you like it.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🙏 Acknowledgments <a name="acknowledgements"></a>
+
+I would like to thank Microverse.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 📝 License <a name="license"></a>
+
+This project is [MIT](/LICENSE) license.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
