@@ -22,8 +22,8 @@ class Person
   end
 end
 
-person1 = Person.new(0o001, 15, 'Adham', parent_permission: false)
-person2 = Person.new(0o002, 17, 'AbdulAziz')
+person1 = Person.new(0o001, 15, 'AbdulAziz', parent_permission: false)
+person2 = Person.new(0o002, 17, 'AbdulSami')
 person3 = Person.new(0o003, 40)
 
 puts person1.can_use_services? # false
