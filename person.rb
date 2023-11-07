@@ -15,12 +15,15 @@ class Person
     @age >= 18
   end
 
-  public
-
-  def can_use_services?
-    of_age? || @parent_permission
+ def can_use_services? 
+    of_age?() || @parent_permission
   end
-end
+  
+  private
+
+ def of_age?
+    @age >= 18
+  end
 
 person1 = Person.new(0o001, 15, 'AbdulAziz', parent_permission: false)
 person2 = Person.new(0o002, 17, 'AbdulSami')
