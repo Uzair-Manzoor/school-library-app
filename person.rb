@@ -18,8 +18,6 @@ class Person < Nameable
     @age >= 18
   end
 
-  public
-
   def can_use_services?
     of_age? || @parent_permission
   end
