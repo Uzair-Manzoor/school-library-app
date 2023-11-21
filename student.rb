@@ -14,7 +14,7 @@ class Student < Person
 
   def display_info
     "[Student] name: #{name}, ID: #{id}, Age: #{age}"
-    "[teacher] name: #{name} ID: #{id}, Age: #{age}}"
+    "[teacher] name: #{name}, ID: #{id}, Age: #{age}}"
   end
 
   def classroom=(classroom)
