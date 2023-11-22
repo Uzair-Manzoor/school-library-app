@@ -1,46 +1,52 @@
-module RentalFactory
-  def create_rental_from_data(rental_data)
-    book = find_book(rental_data['book'])
-    person = find_person(rental_data['person'])
-    Rental.new(
-      rental_data['date'],
-      book,
-      person
-    )
+module PersonFactory
+  def create_person_from_data(person_info)
+    data = person_info['data'].transform_keys(&:to_sym)
+
+    if person_info['type'] == 'Student'
+      Student.new(
+        data[:age], data[:name],
+        parent_permission: data[:parent_permission],
+        classroom: data[:classroom]
+      )
+    elsif person_info['type'] == 'Teacher'
+      Teacher.new(
+        data[:age], data[:name],
+        parent_permission: data[:parent_permission],
+        specialization: data[:specialization]
+      )
+    end
   end
 
-  def save_rentals
-    rentals_data = rentals_manager.rentals.map do |rental|
+  def save_people
+    people_data = people_manager.people.map do |person|
+      data = {
+        id: person.id,
+        age: person.age,
+        name: person.name,
+        parent_permission: person.instance_variable_get('@parent_permission')
+      }
+
+      if person.is_a?(Student)
+        data[:classroom] = person.instance_variable_get('@classroom')
+      elsif person.is_a?(Teacher)
+        data[:specialization] = person.instance_variable_get('@specialization')
+      end
+
       {
-        date: rental.date,
-        book: { title: rental.book.title, author: rental.book.author },
-        person: {
-          id: rental.person.id,
-          age: rental.person.age,
-          name: rental.person.name,
-          parent_permission: rental.person.instance_variable_get('@parent_permission')
-        }
+        type: person.class.to_s,
+        data: data
       }
     end
 
-    serialize_to_json(rentals_data, 'rentals.json')
+    serialize_to_json(people_data, 'people.json')
   end
 
-  def load_rentals
-    return unless File.exist?('rentals.json')
-
-    rentals_data = deserialize_from_json('rentals.json')
-
-    rentals_data.each do |rental_data|
-      rentals_manager.rentals << create_rental_from_data(rental_data)
+  def load_people
+    people_data = deserialize_from_json('people.json')
+    people_data.each do |person_info|
+      person = create_person_from_data(person_info)
+      person.instance_variable_set('@id', person_info['data']['id'])
+      people_manager.people << person
     end
-  end
-
-  def find_book(book_data)
-    books_manager.books.find { |book| book.title == book_data['title'] && book.author == book_data['author'] }
-  end
-
-  def find_person(person_data)
-    people_manager.people.find { |person| person.name == person_data['name'] }
   end
 end
