@@ -3,11 +3,11 @@ require './book'
 require './rental'
 
 describe Person do
-  let(:person) { Person.new(31, 'Enoh Collins') }
+  let(:person) { Person.new(31, 'Unknown') }
 
   it 'should initialize correctly' do
     expect(person.age).to eq(31)
-    expect(person.name).to eq('Enoh Collins')
+    expect(person.name).to eq('Unknown')
   end
 
   it 'should correctly check age' do
@@ -16,14 +16,17 @@ describe Person do
     expect(person.send(:of_age?)).to be false
   end
 
-  it 'should return correct name' do
-    expect(person.correct_name).to eq('Enoh Collins')
+  it 'should add a rental' do
+    book = Book.new('Book', 'Author')
+    rental = person.add_rental(book, '2023-11-23')
+    expect(rental).to be_an_instance_of(Rental)
+    expect(rental.book).to eq(book)
+    expect(rental.person).to eq(person)
+    expect(person.rentals).to include(rental)
   end
 
-  def add_rental(book, due_date)
-    rental = Rental.new(book, self, due_date)
-    @rentals << rental
-    rental
+  it 'should return correct name' do
+    expect(person.name).to eq('Unknown')
   end
 
   it 'should correctly check permission' do
