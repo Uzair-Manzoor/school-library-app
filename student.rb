@@ -4,8 +4,6 @@ class Student < Person
   attr_reader :classroom
 
   def initialize(age, name = 'Unknown', parent_permission: true, classroom: 'Unknown')
-    #attr_reader :classroom
-
     super(age, name, parent_permission: parent_permission)
     @classroom = classroom
   end
@@ -15,7 +13,7 @@ class Student < Person
   end
 
   def display_info
-    "[Student] name: #{name}, ID: #{@id}, Age: #{age}"
+    "[Student] name: #{name}, ID: #{id}, Age: #{age}"
   end
 
   def classroom=(classroom)
