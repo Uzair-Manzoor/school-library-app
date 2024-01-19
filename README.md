@@ -80,9 +80,9 @@ ruby <file_name>.rb
 
 ## 👥 Enoh <a name="author"></a>
 
-- GitHub: [@Uzair Manzoor](https://github.com/enocol)
-- Twitter: [@Uzair Manzoor](https://twitter.com/collins_en25288)
-- LinkedIn: [@Uzair Manzoor](https://linkedin.com/in/enocol)
+- GitHub: [@Enoh](https://github.com/enocol)
+- Twitter: [@Enoh](https://twitter.com/collins_en25288)
+- LinkedIn: [@Enoh](https://linkedin.com/in/enocol)
 
 ## 🔭 Future Features <a name="future-features"></a>
 
